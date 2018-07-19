@@ -1,10 +1,8 @@
-require 'pry'
+class FiguresController < ActiveRecord::Base
 
-class LandmarksController < ApplicationController
-
-  get '/landmarks' do
-    @landmarks = Landmark.all
-    erb :'/landmarks/index'
+  get '/figures' do
+    @figures = Figure.all
+    erb :'/figures/index'
   end
 
   get '/landmarks/new' do
