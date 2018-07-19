@@ -4,35 +4,39 @@
 
   <input id="hidden" type="hidden" name="_method" value="patch">
 
+  <br></br>
+
   <label for="figure_name">Name:</label>
 
-  <input type="text" name="figure[name]" id="name" value="<%=@figure.name%>">
+  <input type="text" name="figure[name]" id="figure_name" value="<%=@figure.name%>">
 
   <br></br>
 
-  <label>Title Name:</label>
+  <label>New Title:</label>
 
-  <input  type="text" name="title[name]" id="new_title" value="<%= @title.name %>"></input>
+  <input type="text" name="title[name]" id="new_title" value="<%= @title.name %>"></input>
 
   <br></br>
 
-  <label>Titles:</label><br>
+  <label>Update Titles:</label><br>
     <% Title.all.each do |title| %>
-    <input id="<%= title_#{title.id} %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %>
+    <%= title.name %>
+    <input id="<%= title.id %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"><%checked if @figure.titles.include?(title)%>>
   <% end %>
 
   <br></br>
 
-  <label>Landmark Name:</label>
+  <label>New Landmark:</label>
 
   <input type="text" name="landmark[name]" id="new_landmark" value="<%= @landmark.name %>">
 
   <br></br>
 
-  <label>Landmarks:</label><br>
+  <label>Edit Landmarks:</label><br>
     <% Landmark.all.each do |landmark| %>
-    <input id="<%= landmark_#{landmark.id} %>" type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%= landmark.name %>
-  <% end %>
+      <%= landmark.name %>
+      <input id="<%= landmark.id %>" type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%checked if @figure.landmarks.include?(landmark)%>>
+    <% end %>
 
   <input type="submit" value="Edit Figure">
 
