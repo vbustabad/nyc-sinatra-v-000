@@ -1,4 +1,6 @@
-class FiguresController < ActiveRecord::Base
+require 'pry'
+
+class FiguresController < ApplicationController
 
   get '/figures' do
     @figures = Figure.all
@@ -10,7 +12,8 @@ class FiguresController < ActiveRecord::Base
   end
 
   post '/figures' do
-    @figure = Figure.create(name: params[:landmark_name], year_completed: params[:landmark_year_completed])
+    binding.pry
+    @figure = Figure.create(name: params[:figure_name])
   end
 
   get '/figures/:id' do
@@ -20,7 +23,7 @@ class FiguresController < ActiveRecord::Base
 
   get '/figures/:id/edit' do
     @figures = Figure.find(params[:id])
-
+    erb :'/figures/edit'
   end
 
 end
