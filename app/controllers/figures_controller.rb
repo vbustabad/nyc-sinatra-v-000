@@ -5,21 +5,21 @@ class FiguresController < ActiveRecord::Base
     erb :'/figures/index'
   end
 
-  get '/landmarks/new' do
-    erb :'/landmarks/new'
+  get '/figures/new' do
+    erb :'/figures/new'
   end
 
-  post '/landmarks' do
-    @landmark = Landmark.create(name: params[:landmark_name], year_completed: params[:landmark_year_completed])
+  post '/figures' do
+    @figure = Figure.create(name: params[:landmark_name], year_completed: params[:landmark_year_completed])
   end
 
-  get '/landmarks/:id' do
-    @landmark = Landmark.find(params[:id])
-    erb :'/landmarks/show'
+  get '/figures/:id' do
+    @figure = Figure.find(params[:id])
+    erb :'/figures/show'
   end
 
-  get '/landmarks/:id/edit' do
-    @landmark = Landmark.find(params[:id])
+  get '/figures/:id/edit' do
+    @figures = Figure.find(params[:id])
 
   end
 
