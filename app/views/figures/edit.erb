@@ -1,11 +1,12 @@
 <h1>Update Figures</h1>
-<% binding.pry %>
 
 <form action="/figures/<%=@figure.id%>" method="POST">
 
   <input id="hidden" type="hidden" name="_method" value="patch"></input>
 
   <br></br>
+
+  <% binding.pry %>
 
   <label for="figure_name">Figure Name:</label>
 
