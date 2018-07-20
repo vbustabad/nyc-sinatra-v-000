@@ -4,25 +4,41 @@
 
   <h2>Figure Information</h2><br />
 
-  <label for="figure_name">Figure Name:</label><br />
-  <input type="text" name="figure[name]" id="figure_name"><br />
+  <label for="figure_name">Figure Name:</label>
+  <input type="text" name="figure[name]" id="figure_name">
 
-  <label for="title_name">Title Name:</label><br>
-  <input type="text" name="title[name]" id="new_title"><br />
+  <br></br>
 
-  <label>Titles:</label><br>
+  <label for="title_name">Title Name:</label>
+  <input type="text" name="title[name]" id="new_title">
+
+  <br></br>
+
+  <label>Titles:</label>
+
+  <br></br>
+  
   <% Title.all.each do |title| %>
-    <input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %><br>
+    <input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %>
   <% end %>
 
-  <label for="landmark_name">Landmark Name:</label><br>
-  <input type="text" name="landmark[name]" id="new_landmark"></br>
+  <br></br>
 
-  <label>Landmarks:</label><br>
+  <label for="landmark_name">Landmark Name:</label>
+  <input type="text" name="landmark[name]" id="new_landmark">
+
+  <br></br>
+
+  <label>Landmarks:</label>
+
+  <br></br>
+  
     <% Landmark.all.each do |landmark| %>
       <input type="checkbox" id="landmark_<%=landmark.id %>" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%= landmark.name %>
     <% end %>
 
-  <input type="submit" value="Create New Figure"><br>
+  <br></br>
+
+  <input type="submit" value="Create New Figure">
 
 </form>
