@@ -32,8 +32,8 @@ class LandmarksController < ApplicationController
     binding.pry
     @landmark.name = params[:name]
     @landmark.year_completed = params[:year_completed]
-    binding.pry
     @landmark.save
+    binding.pry
 
     redirect to "/landmarks/#{@landmark.id}"
   end
